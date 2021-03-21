@@ -1,9 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'python:3-slim' }
+    }
+    // agent any
     stages {
         stage('test') {
             steps {
-                sh 'pytest'
+                //sh 'python -m pytest'
+                //sh 'pytest'
+                sh 'python --version'
             }
         }
     }
